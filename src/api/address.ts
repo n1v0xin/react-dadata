@@ -8,7 +8,7 @@ export const sendAddressSearch = async (searchValue: string) => {
     Authorization: 'Token ' + token,
   };
   const method = 'post';
-  const body = JSON.stringify({ query: searchValue });
+  const body = JSON.stringify({ query: searchValue, count: 20 });
 
   return await wrapper(headers, method, url, body);
 };
