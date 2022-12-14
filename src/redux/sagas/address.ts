@@ -1,10 +1,11 @@
 import { put, call, takeLatest } from 'redux-saga/effects';
 import { sendAddressSearch } from '../../api/address';
-import { FixMe } from '../../interfaces';
-import { IAddressAction } from '../../interfaces/address';
+import { IAddressAction, IResponseSuggestions } from '../../interfaces/address';
 import { addressSearchFailed, addressSearchLoaded } from '../actions/address';
 
-function* searchAddressWorker(action: IAddressAction): FixMe {
+function* searchAddressWorker(
+  action: IAddressAction
+): Generator<IAddressAction, void, IResponseSuggestions> {
   try {
     const res = yield call(sendAddressSearch, action.payload);
     yield put(addressSearchLoaded(res.suggestions));
@@ -13,6 +14,6 @@ function* searchAddressWorker(action: IAddressAction): FixMe {
   }
 }
 
-export function* searchAddressWatcher(): FixMe {
+export function* searchAddressWatcher() {
   yield takeLatest('SEARCH_ADDRESS_REQUEST', searchAddressWorker);
 }

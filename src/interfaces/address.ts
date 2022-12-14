@@ -6,6 +6,10 @@ export interface ISuggestion {
 
 export type Suggestions = ISuggestion[];
 
+export interface IResponseSuggestions {
+  suggestions: Suggestions;
+}
+
 export interface IAddressState {
   loading: boolean;
   suggestions: [] | Suggestions;
