@@ -1,8 +1,12 @@
 import React from 'react';
 import './search-form.scss';
 import { addressIcon } from '../../utils/icons';
+import { useDispatch } from 'react-redux';
+import { addressSearchRequested } from '../../redux/actions/address';
 
 const SearchForm = () => {
+  const dispatch = useDispatch();
+
   const [inputError, setInputError] = React.useState(false);
   const inputRef = React.useRef<HTMLInputElement | null>(null);
 
@@ -13,7 +17,7 @@ const SearchForm = () => {
       setInputError(true);
     } else {
       setInputError(false);
-      console.log('fine');
+      dispatch(addressSearchRequested(inputRef.current?.value!));
     }
   };
 

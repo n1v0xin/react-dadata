@@ -21,3 +21,6 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# prevent accidental commit of credentials
+/src/constants/api.ts

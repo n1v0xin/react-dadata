@@ -1,10 +1,16 @@
-import axios from 'axios';
+import axios, { RawAxiosRequestHeaders } from 'axios';
 
 const checkResponse = (response: any) => response.data;
 const catchError = (error: any) => error;
 
-export const wrapper = (
+export const wrapper = async (
+  headers: RawAxiosRequestHeaders,
   method: 'post' | 'get' | 'put' | 'delete',
   url: string,
   data?: any
-) => axios.request({ method, url, data }).then(checkResponse).catch(catchError);
+) => {
+  return await axios
+    .request({ headers, method, url, data })
+    .then(checkResponse)
+    .catch(catchError);
+};
