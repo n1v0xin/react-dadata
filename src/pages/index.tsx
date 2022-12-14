@@ -3,7 +3,7 @@ import Container from '../components/container';
 
 const PageIndex = () => {
   return (
-    <Container title='Поиск адресов' subtitle='Введите интересующий вас адрес'>
+    <Container title='Новости' subtitle='Обновление CRM до 1.2'>
       <div className='test'>sgsdfg</div>
     </Container>
   );

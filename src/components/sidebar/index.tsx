@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import {
   addressIcon,
   calendarIcon,
@@ -31,13 +31,24 @@ const Sidebar = () => {
       <div className='sidebar__title'>Меню</div>
 
       <div className='sidebar__wrapper'>
-        <Link className='sidebar__link' to='/'>
+        <NavLink
+          end
+          to='/'
+          className={({ isActive }) =>
+            isActive ? 'sidebar__link sidebar__link--active' : 'sidebar__link'
+          }
+        >
           {indexIcon} Главная
-        </Link>
+        </NavLink>
 
-        <Link className='sidebar__link sidebar__link--active' to='/address'>
+        <NavLink
+          className={({ isActive }) =>
+            isActive ? 'sidebar__link sidebar__link--active' : 'sidebar__link'
+          }
+          to='/address'
+        >
           {addressIcon} Поиск адресов
-        </Link>
+        </NavLink>
 
         <Link className='sidebar__link' to='/'>
           {tablesIcon} Таблицы
