@@ -1,14 +1,28 @@
+@import '../../scss/mixins';
+
 .logo {
   display: flex;
   align-items: center;
 
   svg {
     fill: #fff;
+
+    @include respondTo(768px) {
+      width: 32px;
+      height: 32px;
+      flex-shrink: 0;
+    }
   }
 
   &__text {
     margin-left: 24px;
     font-weight: 700;
     color: #fff;
+
+    @include respondTo(768px) {
+      margin-left: 16px;
+      margin-right: 16px;
+      font-size: 16px;
+    }
   }
 }

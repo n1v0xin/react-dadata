@@ -1,9 +1,14 @@
 @import '../../scss/vars';
+@import '../../scss/mixins';
 
 .search-form {
   display: flex;
   align-items: flex-start;
   width: 100%;
+
+  @include respondTo(992px) {
+    flex-direction: column;
+  }
 
   &__input {
     background: none;
@@ -27,6 +32,11 @@
       flex-direction: column;
       width: 100%;
       margin-right: 24px;
+
+      @include respondTo(992px) {
+        margin-right: 0;
+        margin-bottom: 24px;
+      }
     }
   }
 
@@ -54,5 +64,11 @@
       fill: #fff;
       margin-right: 16px;
     }
+  }
+
+  &__error {
+    margin-top: 10px;
+    font-size: 16px;
+    color: $colorError;
   }
 }
