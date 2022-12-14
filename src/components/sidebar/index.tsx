@@ -18,7 +18,7 @@ import './sidebar.scss';
 const Sidebar = () => {
   const sidebarNodeRef = React.useRef<HTMLDivElement | null>(null);
 
-  const onParentLinkOpen = () => {
+  const onNodeOpen = () => {
     if (!sidebarNodeRef.current?.classList.contains('sidebar__node--open')) {
       sidebarNodeRef.current?.classList.add('sidebar__node--open');
     } else {
@@ -67,7 +67,7 @@ const Sidebar = () => {
         </Link>
 
         <div className='sidebar__node' ref={sidebarNodeRef}>
-          <span className='sidebar__link' onClick={onParentLinkOpen}>
+          <span className='sidebar__link' onClick={onNodeOpen}>
             {settingsIcon} Настройки
             <span className='sidebar__node-icon'>{dropdownIcon}</span>
           </span>
