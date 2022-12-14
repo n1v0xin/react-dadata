@@ -1,3 +1,5 @@
+@import '../../scss/vars';
+
 .main {
   display: flex;
   height: calc(100% - 81px);
@@ -17,4 +19,21 @@ h1 {
 
 h2 {
   margin-bottom: 16px;
+}
+
+p {
+  font-weight: 500;
+  margin-bottom: 24px;
+}
+
+a {
+  transition: 0.3s;
+
+  &:link {
+    color: $colorLink;
+  }
+
+  &:hover {
+    color: $colorPrimary;
+  }
 }
